@@ -15,8 +15,6 @@ public class DBConnection {
         private final static String USER = "";
         private final static String PASS = "root";
 
-
-
         public static Connection getConnection(){
 
             try {
