@@ -11,10 +11,10 @@ import java.sql.SQLException;
 public class ActivityCRUD {
 
 
-    public static int getFromDB(String activityName)throws SQLException{
+    public static int getFromDB(String field,String activityName)throws SQLException{
 
         Connection con = TechnicalService.DBConnection.getConnection();
-        PreparedStatement prepstmt = con.prepareStatement("SELECT `Duration` FROM `activity` WHERE `NAME`='"+activityName+"'");
+        PreparedStatement prepstmt = con.prepareStatement("SELECT `"+field+"` FROM `activity` WHERE `NAME`='"+activityName+"'");
         ResultSet rs = prepstmt.executeQuery();
         rs.next();
        return rs.getInt(1);

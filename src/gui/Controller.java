@@ -35,30 +35,34 @@ public class Controller {
     private Button adminLogin;
 
 
-    int time1 = ActivityCRUD.getFromDB("GoKart");
-    int time2 = ActivityCRUD.getFromDB("PaintBall");
+    int time1 = ActivityCRUD.getFromDB("Duration","GoKart");
+    int time2 = ActivityCRUD.getFromDB("Duration","PaintBall");
     int time3;
     int time4;
+    int age1= ActivityCRUD.getFromDB("AgeRes","GoKart");
+    int age2= ActivityCRUD.getFromDB("AgeRes","PaintBall");
+    int age3;
+    int age4;
 
     public Controller() throws SQLException {
     }
 
     @FXML
     private void showGocart(ActionEvent actionEvent) {
-        SceneManager.getInstance().displayInformation("Adventure info", null, "This is GOCART. Time: "+ time1 +"hr Minimum age: 13" +
+        SceneManager.getInstance().displayInformation("Adventure info", null, "This is GOCART. Time: "+ time1 +"hr Minimum age:"+ age1 +
                 " Equipment will be provided");
         }
     @FXML
     private void showPaintball(ActionEvent actionEvent) {
-        SceneManager.getInstance().displayInformation("Adventure info", null, "This is Paintball. Time: "+ time2 +"hr Minimum age: 16");
+        SceneManager.getInstance().displayInformation("Adventure info", null, "This is Paintball. Time: "+ time2 +"hr Minimum age:"+ age2);
     }
     @FXML
     private void showMinigolf(ActionEvent actionEvent) {
-        SceneManager.getInstance().displayInformation("Adventure info", null, "This is Minigolf. Time: "+ time3 +"hr Minimum age: 10");
+        SceneManager.getInstance().displayInformation("Adventure info", null, "This is Minigolf. Time: "+ time3 +"hr Minimum age:"+ age3);
     }
     @FXML
     private void showSumo(ActionEvent actionEvent) {
-        SceneManager.getInstance().displayInformation("Adventure info", null, "This is Sumo. Time: "+ time4 +"hr Minimum age: 12");
+        SceneManager.getInstance().displayInformation("Adventure info", null, "This is Sumo. Time: "+ time4 +"hr Minimum age:"+ age4);
     }
 
     @FXML
