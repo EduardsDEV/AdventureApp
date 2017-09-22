@@ -49,11 +49,11 @@ public class Controller {
     }
     @FXML
     private void showMinigolf(ActionEvent actionEvent) {
-        SceneManager.getInstance().displayInformation("Adventure info", null, "This is Minigolf. Time: "+ time3 +"hr Minimum age: 10");
+        SceneManager.getInstance().displayInformation("Adventure info", null, "This is Minigolf. Time: "+ time3 +"hr Minimum age:"+ age3);
     }
     @FXML
     private void showSumo(ActionEvent actionEvent) {
-        SceneManager.getInstance().displayInformation("Adventure info", null, "This is Sumo. Time: "+ time4 +"hr Minimum age: 12");
+        SceneManager.getInstance().displayInformation("Adventure info", null, "This is Sumo. Time: "+ time4 +"hr Minimum age:"+ age4);
     }
 
 
