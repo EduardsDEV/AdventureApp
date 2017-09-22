@@ -1,5 +1,7 @@
 package gui;
 
+import TechnicalService.ActivityCRUD;
+import domain.Activity;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -24,22 +26,30 @@ public class Controller {
     @FXML
     private Button show4Btn;
 
+    int time1 = ActivityCRUD.getFromDB("GoKart");
+    int time2 = ActivityCRUD.getFromDB("PaintBall");
+    int time3;
+    int time4;
+
+    public Controller() throws SQLException {
+    }
+
     @FXML
     private void showGocart(ActionEvent actionEvent) {
-        SceneManager.getInstance().displayInformation("Adventure info", null, "This is GOCART. Time: 1hr Minimum age: 13" +
+        SceneManager.getInstance().displayInformation("Adventure info", null, "This is GOCART. Time: "+ time1 +"hr Minimum age: 13" +
                 " Equipment will be provided");
         }
     @FXML
     private void showPaintball(ActionEvent actionEvent) {
-        SceneManager.getInstance().displayInformation("Adventure info", null, "This is Paintball. Time: 0hr 30 min Minimum age: 16");
+        SceneManager.getInstance().displayInformation("Adventure info", null, "This is Paintball. Time: "+ time2 +"hr Minimum age: 16");
     }
     @FXML
     private void showMinigolf(ActionEvent actionEvent) {
-        SceneManager.getInstance().displayInformation("Adventure info", null, "This is Minigolf. Time: 2hr Minimum age: 10");
+        SceneManager.getInstance().displayInformation("Adventure info", null, "This is Minigolf. Time: "+ time3 +"hr Minimum age: 10");
     }
     @FXML
     private void showSumo(ActionEvent actionEvent) {
-        SceneManager.getInstance().displayInformation("Adventure info", null, "This is Sumo. Time: 1hr Minimum age: 12");
+        SceneManager.getInstance().displayInformation("Adventure info", null, "This is Sumo. Time: "+ time4 +"hr Minimum age: 12");
     }
 
 

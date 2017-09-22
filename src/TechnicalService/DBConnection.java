@@ -9,11 +9,11 @@ import java.sql.SQLException;
  */
 public class DBConnection {
 
-        //private final static String url = "jdbc:mysql://localhost:3306/";
-        private final static String url = "jdbc:mysql://52.29.93.75:3306/";
+        private final static String url = "jdbc:mysql://localhost:3306/";
+        //private final static String url = "jdbc:mysql://52.29.93.75:3306/";
         private final static String DB_NAME = "adventure";
-        private final static String USER = "";
-        private final static String PASS = "root";
+        private final static String USER = "root";
+        private final static String PASS = "";
 
         public static Connection getConnection(){
 
