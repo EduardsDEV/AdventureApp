@@ -37,6 +37,16 @@ public class Controller {
     @FXML
     private PasswordField adminPassword;
 
+    @FXML private TextField name;
+    @FXML private TextField age;
+    @FXML private TextField email;
+    @FXML private TextField phone;
+    @FXML private TextField numOfPeople;
+    @FXML private TextField activity;
+
+    @FXML private Button bookBtn;
+
+
 
     int time1 = ActivityCRUD.getFromDB("Duration","GoKart");
     int time2 = ActivityCRUD.getFromDB("Duration","PaintBall");
