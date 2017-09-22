@@ -1,6 +1,7 @@
 package gui;
 
 import TechnicalService.ActivityCRUD;
+import TechnicalService.DBConnection;
 import domain.Activity;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -100,6 +101,9 @@ public class Controller {
             wrongCredentials.setContentText(null);
             wrongCredentials.showAndWait();
         }
+
+
+
 
     }
 

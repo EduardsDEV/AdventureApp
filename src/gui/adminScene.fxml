@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
@@ -7,13 +11,22 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AdminController">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AdminController">
   <tabs>
     <Tab text="activities">
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <Text layoutX="144.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="helloooooo admin" />
+                  <Text layoutX="144.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+                  <TableView fx:id="activityTable" layoutX="8.0" layoutY="14.0" prefHeight="345.0" prefWidth="332.0">
+                    <columns>
+                      <TableColumn fx:id="columnName" prefWidth="75.0" text="Name" />
+                      <TableColumn fx:id="columnAgeRes" prefWidth="104.0" text="Minimum Age" />
+                        <TableColumn fx:id="columnDuration" prefWidth="75.0" text="Duration" />
+                        <TableColumn fx:id="columnPrice" prefWidth="75.0" text="Price" />
+                    </columns>
+                  </TableView>
+                  <Button fx:id="loadBtt" layoutX="437.0" layoutY="174.0" mnemonicParsing="false" onAction="#displayActivity" text="Button" />
                </children></AnchorPane>
       </content>
     </Tab>
