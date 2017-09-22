@@ -9,9 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
@@ -22,7 +20,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class Controller {
-
+    private static final String ADMIN_USERNAME = "xp";
+    private static final String ADMIN_PASSWORD = "xp";
     @FXML
     private Button show1Btn;
     @FXML
@@ -33,6 +32,10 @@ public class Controller {
     private Button show4Btn;
     @FXML
     private Button adminLogin;
+    @FXML
+    private TextField adminLoginField;
+    @FXML
+    private PasswordField adminPassword;
 
 
     int time1 = ActivityCRUD.getFromDB("Duration","GoKart");
@@ -65,14 +68,16 @@ public class Controller {
         SceneManager.getInstance().displayInformation("Adventure info", null, "This is Sumo. Time: "+ time4 +"hr Minimum age:"+ age4);
     }
 
-    @FXML
-    private void adminLogin(ActionEvent actionEvent) throws IOException {
-        SceneManager.getInstance().loadAdministratorScene();
+    private boolean grantAccess(String username, String password) {
+        return (ADMIN_USERNAME.equals(username) && ADMIN_PASSWORD.equals(password)) ;
     }
 
     @FXML
     public void openWindow(ActionEvent event) {
-        try{
+        String admin = adminLoginField.getText();
+        String pass = adminPassword.getText();
+        if (grantAccess(admin, pass)){
+            try{
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/gui/adminScene.fxml"));
             Parent root1 = fxmlLoader.load();
             Stage stage = new Stage();
@@ -83,6 +88,12 @@ public class Controller {
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
+        }}else{
+            Alert wrongCredentials = new Alert(Alert.AlertType.ERROR);
+            wrongCredentials.setTitle("Invalid login");
+            wrongCredentials.setHeaderText("Invalid username or password.");
+            wrongCredentials.setContentText(null);
+            wrongCredentials.showAndWait();
         }
 
     }

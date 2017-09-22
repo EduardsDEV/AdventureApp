@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -40,6 +42,8 @@
                         <Button layoutX="203.0" layoutY="206.0" mnemonicParsing="false" onAction="#showMinigolf" text="Find Out" />
                         <Button layoutX="203.0" layoutY="308.0" mnemonicParsing="false" onAction="#showSumo" text="Find Out" />
                         <Button fx:id="adminLogin" layoutX="479.0" layoutY="438.0" mnemonicParsing="false" onAction="#openWindow" text="admin login" />
+                        <TextField fx:id="adminLoginField" layoutX="407.0" layoutY="359.0" />
+                        <PasswordField fx:id="adminPassword" layoutX="407.0" layoutY="399.0" />
                      </children>
                   </AnchorPane>
             </content>
