@@ -200,6 +200,9 @@ public class Controller {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+        System.out.println("see i pushed");
+
     }
 }
 
