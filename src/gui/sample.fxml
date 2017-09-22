@@ -4,12 +4,12 @@
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Text?>
 
-
-<GridPane alignment="center" hgap="10" vgap="10" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.111" fx:controller="gui.Controller">
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.Controller">
    <children>
       <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
@@ -39,6 +39,7 @@
                         <Button layoutX="203.0" layoutY="130.0" mnemonicParsing="false" onAction="#showPaintball" text="Find Out" />
                         <Button layoutX="203.0" layoutY="206.0" mnemonicParsing="false" onAction="#showMinigolf" text="Find Out" />
                         <Button layoutX="203.0" layoutY="308.0" mnemonicParsing="false" onAction="#showSumo" text="Find Out" />
+                        <Button fx:id="adminLogin" layoutX="479.0" layoutY="438.0" mnemonicParsing="false" onAction="#openWindow" text="admin login" />
                      </children>
                   </AnchorPane>
             </content>
@@ -54,4 +55,7 @@
    <rowConstraints>
       <RowConstraints />
    </rowConstraints>
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
 </GridPane>

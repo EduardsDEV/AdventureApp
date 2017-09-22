@@ -11,9 +11,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Optional;
 
-/**
- * Created by Chris on 23-Apr-17.
- */
+
 public class SceneManager {
     private static SceneManager instance;
 
@@ -45,7 +43,7 @@ public class SceneManager {
     }
 
     void loadAdministratorScene() throws IOException{
-        Parent root = FXMLLoader.load(getClass().getResource("/gui/mainScene.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/gui/adminScene.fxml"));
         Scene adminScene = new Scene(root, 900, 575);
         primaryStage.setScene(adminScene);
     }
