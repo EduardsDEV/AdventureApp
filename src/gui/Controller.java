@@ -1,6 +1,7 @@
 package gui;
 
 import TechnicalService.ActivityCRUD;
+import TechnicalService.DBConnection;
 import domain.Activity;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -13,6 +14,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -105,6 +107,9 @@ public class Controller {
             wrongCredentials.setContentText(null);
             wrongCredentials.showAndWait();
         }
+
+
+
 
     }
 }

@@ -37,35 +37,7 @@ public class Admin {
     }
 
 
-        @FXML
-        void LoadPage(ActionEvent event) throws NoSuchAlgorithmException {
 
-            try {
-                Connection con = TechnicalService.DBConnection.getConnection();
-                Statement stmt = con.createStatement();
-
-                PreparedStatement prepstmt = con.prepareStatement("SELECT * FROM `users` " +
-                        "WHERE `username` = MD5(?) " +
-                        "AND password = MD5(?)");
-
-                //prepstmt.setString(1, hashUser);
-                //prepstmt.setString(2, hashPass);
-                prepstmt.execute();
-
-                ResultSet rs = prepstmt.getResultSet();
-
-
-
-                if(rs.first()) {
-                    //open page
-                }else {
-                    JOptionPane.showMessageDialog(JOptionPane.getRootFrame(),"Invalid username or password");
-                }
-
-            }catch (SQLException e){
-            }
-
-        }
 
 
 
