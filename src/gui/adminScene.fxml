@@ -30,7 +30,7 @@
                   </TableView>
                   <Button fx:id="editBtt" layoutX="428.0" layoutY="119.0" mnemonicParsing="false" onAction="#editActivities" prefHeight="25.0" prefWidth="61.0" text="Edit" />
                   <Button fx:id="saveBtt" layoutX="428.0" layoutY="162.0" mnemonicParsing="false" onAction="#saveUpdates" prefHeight="25.0" prefWidth="59.0" text="Save" />
-                  <Button fx:id="deleteBtt" layoutX="428.0" layoutY="206.0" mnemonicParsing="false" onAction="#editActivities" prefHeight="25.0" prefWidth="59.0" text="Delete" />
+                  <Button fx:id="deleteBtt" layoutX="428.0" layoutY="206.0" mnemonicParsing="false" onAction="#deleteActivity" prefHeight="25.0" prefWidth="59.0" text="Delete" />
                </children></AnchorPane>
       </content>
     </Tab>

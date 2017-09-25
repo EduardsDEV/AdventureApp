@@ -141,7 +141,7 @@ public class Controller {
             prepstmt.setString(3, newDuration);
             prepstmt.setString(4, newPrice);
 
-            System.out.println("new motorhome: " + prepstmt);
+            System.out.println("new avtivity: " + prepstmt);
             prepstmt.execute();
 
             JOptionPane.showMessageDialog(JOptionPane.getRootFrame(), "Saved Activity to database");

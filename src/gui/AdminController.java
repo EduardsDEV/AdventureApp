@@ -17,6 +17,10 @@ import javafx.util.converter.IntegerStringConverter;
 import javax.swing.*;
 import java.sql.*;
 
+import static javax.swing.JOptionPane.NO_OPTION;
+import static javax.swing.JOptionPane.YES_NO_OPTION;
+import static javax.swing.JOptionPane.YES_OPTION;
+
 /**
  * Created by edwar on 9/22/2017.
  */
@@ -157,6 +161,41 @@ public class AdminController {
 
 
         con.close();
+    }
+
+    @FXML
+    void deleteActivity(ActionEvent event) throws SQLException {
+        String message = "Do you really want to delete this activity\n"
+                + "and all information about it?";
+        Object[] options = {"Yes, I do",
+                "No I do not!"};
+
+        final JOptionPane optionPane = new JOptionPane(null,
+                JOptionPane.QUESTION_MESSAGE,
+                YES_NO_OPTION);
+        int dialogue = JOptionPane.showOptionDialog(optionPane, message, "Warning!", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null , options, options[1]);
+
+        if (dialogue == YES_OPTION){
+            ObservableList<Activity> activityDelete, activities; //make observable list for specific motorhome, and all motorhomes
+            activities = activityTable.getItems();
+            activityDelete = activityTable.getSelectionModel().getSelectedItems(); //get the specific row in table that is selected
+            int selectedIndex = activityTable.getSelectionModel().getSelectedIndex(); //the index of selected row
+            String name = columnName.getCellData(selectedIndex); //license data for the selected row
+            //db connection
+            Connection con = DBConnection.getConnection();
+            PreparedStatement prepstmt = con.prepareStatement("DELETE FROM `adventure`.`activity` \n" +
+                    "WHERE `activity`.`name` = ?");
+            prepstmt.setString(1, name);
+            prepstmt.execute();
+            System.out.println("Delete Activity: " + prepstmt);
+            System.out.println(" Activity with " + name +  " has been Deleted");
+            con.close();
+            activityDelete.forEach(activities::remove); // remove specific motorhome from list of all motorhomes
+        } else if (dialogue == NO_OPTION) {
+            System.out.println("Cancelled");
+
+        }
+
     }
 }
 
