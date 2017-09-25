@@ -22,8 +22,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class Controller {
-    private static final String ADMIN_USERNAME = "xp";
-    private static final String ADMIN_PASSWORD = "xp";
+    public static final String ADMIN_USERNAME = "admin";
+    public static final String ADMIN_PASSWORD = "password";
     @FXML
     private Button show1Btn;
     @FXML
@@ -53,7 +53,7 @@ public class Controller {
     }
 
     @FXML
-    private void showGocart(ActionEvent actionEvent) {
+    public void showGocart(ActionEvent actionEvent) {
         SceneManager.getInstance().displayInformation("Adventure info", null, "This is GOCART. Time: " + time1 + "hr Minimum age:" + age1 +
                 " Equipment will be provided");
     }
@@ -73,7 +73,7 @@ public class Controller {
         SceneManager.getInstance().displayInformation("Adventure info", null, "This is Sumo. Time: " + time4 + "hr Minimum age:" + age4);
     }
 
-    private boolean grantAccess(String username, String password) {
+    public boolean grantAccess(String username, String password) {
         return (ADMIN_USERNAME.equals(username) && ADMIN_PASSWORD.equals(password));
     }
 
@@ -201,7 +201,6 @@ public class Controller {
             e.printStackTrace();
         }
 
-        System.out.println("see i pushed");
 
     }
 }
