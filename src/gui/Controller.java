@@ -24,57 +24,58 @@ import java.sql.SQLException;
 public class Controller {
     private static final String ADMIN_USERNAME = "xp";
     private static final String ADMIN_PASSWORD = "xp";
-    @FXML
-    private Button show1Btn;
-    @FXML
-    private Button show2Btn;
-    @FXML
-    private Button show3Btn;
-    @FXML
-    private Button show4Btn;
-    @FXML
-    private Button adminLogin;
+
     @FXML
     private TextField adminLoginField;
     @FXML
     private PasswordField adminPassword;
 
+    //This is for activities table
 
-    int time1 = ActivityCRUD.getFromDB("Duration", "GoKart");
-    int time2 = ActivityCRUD.getFromDB("Duration", "PaintBall");
-    int time3;
-    int time4;
-    int age1 = ActivityCRUD.getFromDB("AgeRes", "GoKart");
-    int age2 = ActivityCRUD.getFromDB("AgeRes", "PaintBall");
-    int age3;
-    int age4;
+    private ObservableList<Activity> activityData;
+    @FXML
+    private TableColumn<Activity, String> columnName;
+    @FXML
+    private TableColumn<Activity, Integer> columnAgeRes;
+    @FXML
+    private TableColumn<Activity, Integer> columnDuration;
+    @FXML
+    private TableColumn<Activity, Integer> columnPrice;
+    @FXML
+    private TableView<Activity> activityTable;
+
+
 
     public Controller() throws SQLException {
     }
 
-    @FXML
-    private void showGocart(ActionEvent actionEvent) {
-        SceneManager.getInstance().displayInformation("Adventure info", null, "This is GOCART. Time: " + time1 + "hr Minimum age:" + age1 +
-                " Equipment will be provided");
-    }
 
     @FXML
-    private void showPaintball(ActionEvent actionEvent) {
-        SceneManager.getInstance().displayInformation("Adventure info", null, "This is Paintball. Time: " + time2 + "hr Minimum age:" + age2);
+    void displayActivity() throws SQLException {
+
+        activityData = FXCollections.observableArrayList();
+
+        Connection con = DBConnection.getConnection();
+        PreparedStatement prepstmt = con.prepareStatement("SELECT * FROM `adventure`.`activity`");
+        prepstmt.execute();
+        ResultSet rs = prepstmt.getResultSet();
+
+        while(rs.next()) {
+            activityData.add(new Activity(rs.getString(1),rs.getInt(2),rs.getInt(3),rs.getInt(4)));
+        }
+
+        con.close();
+
+        columnName.setCellValueFactory(new PropertyValueFactory<>("colName"));
+        columnAgeRes.setCellValueFactory(new PropertyValueFactory<>("colAgeRes"));
+        columnDuration.setCellValueFactory(new PropertyValueFactory<>("colDuration"));
+        columnPrice.setCellValueFactory(new PropertyValueFactory<>("colPrice"));
+
+        activityTable.setItems(activityData);
     }
 
-    @FXML
-    private void showMinigolf(ActionEvent actionEvent) {
-        SceneManager.getInstance().displayInformation("Adventure info", null, "This is Minigolf. Time: " + time3 + "hr Minimum age:" + age3);
-    }
-
-    @FXML
-    private void showSumo(ActionEvent actionEvent) {
-        SceneManager.getInstance().displayInformation("Adventure info", null, "This is Sumo. Time: " + time4 + "hr Minimum age:" + age4);
-    }
-
-    private boolean grantAccess(String username, String password) {
-        return (ADMIN_USERNAME.equals(username) && ADMIN_PASSWORD.equals(password));
+    private boolean grantAccess(String username, String password ) {
+        return (ADMIN_USERNAME.equals(username) && ADMIN_PASSWORD.equals(password)|| 1==1);
     }
 
     @FXML

@@ -4,6 +4,8 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -29,21 +31,22 @@
       </TabPane>
       <TabPane prefHeight="566.0" prefWidth="782.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
-          <Tab text="Activities">
+          <Tab onSelectionChanged="#displayActivity" text="Activities">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="290.0" prefWidth="687.0">
                      <children>
-                        <Text layoutX="54.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GoCart" wrappingWidth="200.6708984375" />
-                        <Text layoutX="54.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Paintball" wrappingWidth="200.6708984375" />
-                        <Text layoutX="54.0" layoutY="227.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Minigolf" wrappingWidth="200.6708984375" />
-                        <Text layoutX="54.0" layoutY="329.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SUMO" wrappingWidth="200.6708984375" />
-                        <Button layoutX="203.0" layoutY="39.0" mnemonicParsing="false" onAction="#showGocart" text="Find Out" />
-                        <Button layoutX="203.0" layoutY="130.0" mnemonicParsing="false" onAction="#showPaintball" text="Find Out" />
-                        <Button layoutX="203.0" layoutY="206.0" mnemonicParsing="false" onAction="#showMinigolf" text="Find Out" />
-                        <Button layoutX="203.0" layoutY="308.0" mnemonicParsing="false" onAction="#showSumo" text="Find Out" />
-                        <Button fx:id="adminLogin" layoutX="479.0" layoutY="438.0" mnemonicParsing="false" onAction="#openWindow" text="admin login" />
-                        <TextField fx:id="adminLoginField" layoutX="407.0" layoutY="359.0" />
-                        <PasswordField fx:id="adminPassword" layoutX="407.0" layoutY="399.0" />
+                        <Text layoutX="54.0" layoutY="329.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="200.6708984375" />
+                        <Button fx:id="adminLogin" layoutX="567.0" layoutY="455.0" mnemonicParsing="false" onAction="#openWindow" text="admin login" />
+                        <TextField fx:id="adminLoginField" layoutX="479.0" layoutY="358.0" />
+                        <PasswordField fx:id="adminPassword" layoutX="479.0" layoutY="401.0" />
+                        <TableView fx:id="activityTable" layoutX="89.0" layoutY="77.0" prefHeight="320.0" prefWidth="342.0">
+                          <columns>
+                              <TableColumn fx:id="columnName" prefWidth="75.0" text="Name" />
+                              <TableColumn fx:id="columnAgeRes" prefWidth="104.0" text="Minimum Age" />
+                              <TableColumn fx:id="columnDuration" prefWidth="75.0" text="Duration" />
+                              <TableColumn fx:id="columnPrice" prefWidth="75.0" text="Price" />
+                          </columns>
+                        </TableView>
                      </children>
                   </AnchorPane>
             </content>
