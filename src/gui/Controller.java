@@ -22,8 +22,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class Controller {
+
     private static final String ADMIN_USERNAME = "xp";
     private static final String ADMIN_PASSWORD = "xp";
+
 
     @FXML
     private TextField adminLoginField;
@@ -48,6 +50,8 @@ public class Controller {
 
     public Controller() throws SQLException {
     }
+
+
 
 
     @FXML
@@ -76,6 +80,7 @@ public class Controller {
 
     private boolean grantAccess(String username, String password ) {
         return (ADMIN_USERNAME.equals(username) && ADMIN_PASSWORD.equals(password)|| 1==1);
+
     }
 
     @FXML
@@ -202,7 +207,6 @@ public class Controller {
             e.printStackTrace();
         }
 
-        System.out.println("see i pushed");
 
     }
 }
